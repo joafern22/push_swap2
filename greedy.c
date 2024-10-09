@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   greedy_instertion.c                                :+:      :+:    :+:   */
+/*   greedy.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joafern2 <joafern2@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 15:54:25 by joafern2          #+#    #+#             */
-/*   Updated: 2024/10/04 21:28:06 by joafern2         ###   ########.fr       */
+/*   Updated: 2024/10/09 20:54:41 by joafern2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	greedy_insertion(int *a, int *b, int *a_size, int *b_size)
 	sort_three(a, *a_size);
 	while (*b_size > 0)
 	{
-		correct_position = find_target_position(a, *a_size, b[0]);
+		correct_position = find_a_target_position(a, *a_size, b[0]);
 		prepare_a(a, *a_size, correct_position);
 		push_a(a, b, a_size, b_size);
 	}

@@ -6,7 +6,7 @@
 /*   By: joafern2 <joafern2@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 15:54:25 by joafern2          #+#    #+#             */
-/*   Updated: 2024/10/08 21:34:50 by joafern2         ###   ########.fr       */
+/*   Updated: 2024/10/09 20:54:09 by joafern2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	sort_three(int *a, int a_size)
 		swap_a(a);
 }
 
-int	find_target_position(int *stack, int stack_size, int nbr)
+int	find_a_target_position(int *stack, int stack_size, int nbr)
 {
 	int	i;
 	int	target_index;
@@ -65,10 +65,29 @@ int	find_target_position(int *stack, int stack_size, int nbr)
 	}
 	if (target_index == -1)
                 target_index = (find_max_index(stack, stack_size) + 1) % stack_size;
-//	if (nbr > stack[find_max_index(stack, stack_size)])
-//		target_index = (find_max_index(stack, stack_size) + 1) % stack_size;
-//	if (nbr < stack[find_min_index(stack, stack_size)])
-//		target_index = (find_min_index(stack, stack_size) + 1) % stack_size;
+	return (target_index);
+}
+
+int	find_b_target_position(int *stack, int stack_size, int nbr)
+{
+	int	i;
+	int	target_index;
+
+	i = 0;
+	target_index = -1;
+	while (i < stack_size)
+	{
+		if (stack[i] < nbr)
+		{
+			if (target_index == -1 || (stack[i] > stack[target_index]))
+			{
+				target_index = i;
+			}
+		}
+		i++;
+	}
+	if (target_index == -1)
+                target_index = (find_min_index(stack, stack_size) + 1) % stack_size;
 	return (target_index);
 }
 

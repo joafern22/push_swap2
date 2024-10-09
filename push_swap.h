@@ -6,7 +6,7 @@
 /*   By: joafern2 <joafern2@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 16:35:27 by joafern2          #+#    #+#             */
-/*   Updated: 2024/10/07 16:29:15 by joafern2         ###   ########.fr       */
+/*   Updated: 2024/10/09 20:55:29 by joafern2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,8 @@ int	allocate_stacks(int **a, int **b, int a_size);
 void	greedy_insertion(int *a, int *b, int *a_size, int *b_size);
 int	find_max_index(int *b, int b_size);
 int	find_min_index(int *a, int a_size);
-int	find_target_position(int *stack, int stack_size, int nbr);
+int	find_a_target_position(int *stack, int stack_size, int nbr);
+int	find_b_target_position(int *stack, int stack_size, int nbr);
 void	calculate_best_moves(int *a, int *b, int a_size, int b_size, cheapest_moves *cheapest);
 void	calculate_moves(int a_size, int b_size, int a_index, record_moves *moves);
 void	execute_best_moves(int *a, int *b, int a_size, int b_size, cheapest_moves *cheapest);
