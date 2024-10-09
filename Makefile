@@ -5,7 +5,7 @@ SRC = main.c push_swap.c rotate.c r_rotate.c greedy.c calculate_execute.c find_s
 OBJ = $(SRC:.c=.o)
 
 RM = rm -f 
-NAME = push_swap
+NAME = push_swap2
 
 all: $(NAME)
 

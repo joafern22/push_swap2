@@ -6,7 +6,7 @@
 /*   By: joafern2 <joafern2@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 16:35:27 by joafern2          #+#    #+#             */
-/*   Updated: 2024/10/04 21:33:16 by joafern2         ###   ########.fr       */
+/*   Updated: 2024/10/07 16:29:15 by joafern2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define PUSH_SWAP_H
 
 #include <unistd.h>
-#include "libft_ps/libft.h"
+#include "libft.h"
 
 typedef struct	s_record_moves
 {

@@ -6,7 +6,7 @@
 /*   By: joafern2 <joafern2@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 14:56:36 by joafern2          #+#    #+#             */
-/*   Updated: 2024/10/04 21:20:10 by joafern2         ###   ########.fr       */
+/*   Updated: 2024/10/08 19:48:50 by joafern2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ void	write_stacks(int *a, int *b, int a_size, int b_size)
 		free(ascii);
 		i++;
 	}
-	free(a);
-	free(b);
 }
 
 void	swap_a(int *a)

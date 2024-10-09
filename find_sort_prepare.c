@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   greedy_instertion.c                                :+:      :+:    :+:   */
+/*   find_sort_prepare.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joafern2 <joafern2@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 15:54:25 by joafern2          #+#    #+#             */
-/*   Updated: 2024/10/04 21:28:06 by joafern2         ###   ########.fr       */
+/*   Updated: 2024/10/08 21:34:50 by joafern2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	prepare_a(int *a, int a_size, int position)
 			position++;
 		}
 	}
+	//inserir rb e rrb
 }
 
 void	sort_three(int *a, int a_size)
@@ -63,7 +64,11 @@ int	find_target_position(int *stack, int stack_size, int nbr)
 		i++;
 	}
 	if (target_index == -1)
-		target_index = (find_max_index(stack, stack_size) + 1) % stack_size;
+                target_index = (find_max_index(stack, stack_size) + 1) % stack_size;
+//	if (nbr > stack[find_max_index(stack, stack_size)])
+//		target_index = (find_max_index(stack, stack_size) + 1) % stack_size;
+//	if (nbr < stack[find_min_index(stack, stack_size)])
+//		target_index = (find_min_index(stack, stack_size) + 1) % stack_size;
 	return (target_index);
 }
 
