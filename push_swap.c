@@ -49,29 +49,6 @@ void	swap_a(int *a)
 	write(1, "sa\n", 3);
 }
 
-void	swap_b(int *b)
-{
-	int	temp;
-
-	temp = b[0];
-	b[0] = b[1];
-	b[1] = temp;
-	write(1, "sb\n", 3);
-}
-
-void	swap_ss(int *a, int *b)
-{
-	int	temp;
-
-	temp = a[0];
-	a[0] = a[1];
-	a[1] = temp;
-	temp = b[0];
-	b[0] = b[1];
-	b[1] = temp;
-	write(1, "ss\n", 3);
-}
-
 void	push_a(int *a, int *b, int *a_size, int *b_size)
 {
 	int	i;
