@@ -14,8 +14,6 @@
 #include <stdio.h>
 
 /* TO DO:
- * Check for non-numerical values;
- * Check for argv > INT_MAX || argv < INT_MIN;
  * Check for error memory leaks;
  * Check again! :)
 */
@@ -70,19 +68,23 @@ int	allocate_stacks(int **a, int **b, int a_size)
 	return (1);
 }
 
+// Check for argv > INT_MAX || argv < INT_MIN;
+// Check for non-numerical values;
+
 int	parser(int *a, int *b, int a_size, char **argv)
 {
 	int	i;
+	int	error;
 
 	i = 0;
+	error = 0;
 	(void)b;
 	while (i < a_size)
 	{
-		a[i] = ft_atoi(argv[i + 1]);
-		if (is_duplicate(a[i], a, i) || a[i] < INT_MIN || a[i] > INT_MAX)
+		a[i] = ft_atoi(argv[i + 1], &error);
+		if (is_duplicate(a[i], a, i) ||!ft_isdecimal(argv[i + 1]) || error)
 		{
 			write(2, "Error\n", 6);
-			//printf("%d\n", a[i]);
 			return (0);
 		}
 		i++;

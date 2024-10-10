@@ -55,6 +55,8 @@ void	r_rotate_a(int *a, int *a_size);
 void	r_rotate_b(int *b, int *b_size);
 void	r_rotate_rr(int *a, int *b, int *a_size, int *b_size);
 int	is_duplicate(int nbr, int *a, int i);
+int     ft_isdecimal(char *c);
+int     ft_atoi(const char *nptr, int *error);
 int	parser(int *a, int *b, int a_size, char **argv);
 void	write_stacks(int *a, int *b, int a_size, int b_size);
 int	allocate_stacks(int **a, int **b, int a_size);
