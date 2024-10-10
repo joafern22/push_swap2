@@ -61,6 +61,10 @@ int	parser(int *a, int *b, int a_size, char **argv);
 void	write_stacks(int *a, int *b, int a_size, int b_size);
 int	allocate_stacks(int **a, int **b, int a_size);
 void	greedy_insertion(int *a, int *b, int *a_size, int *b_size);
+int     edge_cases(int *a, int a_size);
+int     sorted(int *a, int a_size);
+void    sort_two(int *a, int a_size);
+void    sort_three(int *a, int a_size);
 int	find_max_index(int *b, int b_size);
 int	find_min_index(int *a, int a_size);
 int	find_a_target_position(int *stack, int stack_size, int nbr);
@@ -75,7 +79,6 @@ void	execute_rb_rra(int *a, int *b, int a_size, int b_size, cheapest_moves *chea
 int	best_combination(int one, int two, int three, int four);
 void	update_cheapest(cheapest_moves *cheapest, record_moves *current_moves, int i);
 void	calculate_total_moves(record_moves *moves);
-void	sort_three(int *a, int a_size);
 void	prepare_a(int *a, int a_size, int position);
 int	max(int moves1, int moves2);
 int	min(int moves1, int moves2);

@@ -14,8 +14,6 @@
 #include <stdio.h>
 
 /* TO DO:
- * Check if argc == 2 || argc == 3 || argc == 4;
- * Check if the list is already sorted;
  * Check for non-numerical values;
  * Check for argv > INT_MAX || argv < INT_MIN;
  * Check for error memory leaks;
@@ -46,7 +44,8 @@ int	main(int argc, char **argv)
 		free(b);
 		return (EXIT_FAILURE);
 	}
-	greedy_insertion(a, b, &a_size, &b_size);
+	if (!edge_cases(a, a_size))
+		greedy_insertion(a, b, &a_size, &b_size);
 	//write_stacks(a, b, a_size, b_size);
 	free(a);
 	free(b);
@@ -89,4 +88,49 @@ int	parser(int *a, int *b, int a_size, char **argv)
 		i++;
 	}
 	return (0);
+}
+
+// Check if argc == 2 || argc == 3 || argc == 4;
+// Check if the list is already sorted;
+
+int	sorted(int *a, int a_size)
+{
+	int	i;
+
+	i = 0;
+	if (a_size == 1)
+		return (1);
+	while (i < a_size - 1)
+	{
+		if (a[i] > a[i + 1])
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+void	sort_two(int *a, int a_size)
+{
+	if (a_size != 2)
+		return ;
+	if (a[0] > a[1])
+		swap_a(a);
+}
+
+int	edge_cases(int *a, int a_size)
+{
+	if (sorted(a, a_size) || a_size == 1)
+		return (1);	
+	else if (a_size == 2)
+	{
+		sort_two(a, a_size);
+		return (1);
+	}
+	else if (a_size == 3)
+	{
+		sort_three(a, a_size);
+		return (1);
+	}
+	else
+		return (0);
 }
