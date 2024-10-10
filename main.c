@@ -36,9 +36,9 @@ int	main(int argc, char **argv)
 	b = NULL;
 	a_size = argc - 1;
 	b_size = 0;
-	if (allocate_stacks(&a, &b, a_size))
+	if (!allocate_stacks(&a, &b, a_size))
 		return (EXIT_FAILURE);
-	if (parser(a, b, a_size, argv))
+	if (!parser(a, b, a_size, argv))
 	{
 		free(a);
 		free(b);
@@ -58,16 +58,16 @@ int	allocate_stacks(int **a, int **b, int a_size)
 	if (!(*a))
 	{
 		write(2, "Error\n", 6);
-		return (1);
+		return (0);
 	}
 	*b = malloc((a_size) * sizeof(int));
 	if (!(*b))
 	{
-		free(a);
+		free(a); 
 		write(2, "Error\n", 6);
-		return (1);
+		return (0);
 	}
-	return (0);
+	return (1);
 }
 
 int	parser(int *a, int *b, int a_size, char **argv)
@@ -83,11 +83,11 @@ int	parser(int *a, int *b, int a_size, char **argv)
 		{
 			write(2, "Error\n", 6);
 			//printf("%d\n", a[i]);
-			return (1);
+			return (0);
 		}
 		i++;
 	}
-	return (0);
+	return (1);
 }
 
 // Check if argc == 2 || argc == 3 || argc == 4;
