@@ -68,9 +68,6 @@ int	allocate_stacks(int **a, int **b, int a_size)
 	return (1);
 }
 
-// Check for argv > INT_MAX || argv < INT_MIN;
-// Check for non-numerical values;
-
 int	parser(int *a, int *b, int a_size, char **argv)
 {
 	int	i;
@@ -90,49 +87,4 @@ int	parser(int *a, int *b, int a_size, char **argv)
 		i++;
 	}
 	return (1);
-}
-
-// Check if argc == 2 || argc == 3 || argc == 4;
-// Check if the list is already sorted;
-
-int	sorted(int *a, int a_size)
-{
-	int	i;
-
-	i = 0;
-	if (a_size == 1)
-		return (1);
-	while (i < a_size - 1)
-	{
-		if (a[i] > a[i + 1])
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-void	sort_two(int *a, int a_size)
-{
-	if (a_size != 2)
-		return ;
-	if (a[0] > a[1])
-		swap_a(a);
-}
-
-int	edge_cases(int *a, int a_size)
-{
-	if (sorted(a, a_size))
-		return (1);	
-	else if (a_size == 2)
-	{
-		sort_two(a, a_size);
-		return (1);
-	}
-	else if (a_size == 3)
-	{
-		sort_three(a, a_size);
-		return (1);
-	}
-	else
-		return (0);
 }
