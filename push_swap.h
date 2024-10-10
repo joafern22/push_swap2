@@ -46,8 +46,6 @@ typedef struct	s_cheapest_moves
 }	cheapest_moves;
 
 void	swap_a(int *a);
-void	swap_b(int *b);
-void	swap_ss(int *a, int *b);
 void	push_a(int *a, int *b, int *a_size, int *b_size);
 void	push_b(int *a, int *b, int *a_size, int *b_size);
 void	rotate_a(int *a, int *a_size);
