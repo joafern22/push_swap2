@@ -119,7 +119,7 @@ void	sort_two(int *a, int a_size)
 
 int	edge_cases(int *a, int a_size)
 {
-	if (sorted(a, a_size) || a_size == 1)
+	if (sorted(a, a_size))
 		return (1);	
 	else if (a_size == 2)
 	{
