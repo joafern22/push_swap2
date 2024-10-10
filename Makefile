@@ -19,7 +19,7 @@ clean:
 	$(RM) $(OBJ)
 
 fclean: clean
-	$(RM) $(NAME) push_swap
+	$(RM) $(NAME)
 
 re: fclean all 
 
