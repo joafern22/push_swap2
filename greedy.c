@@ -15,13 +15,12 @@
 void	greedy_insertion(int *a, int *b, int *a_size, int *b_size)
 {
 	int	correct_position;
-	cheapest_moves	cheapest;
 	
 	push_b(a, b, a_size, b_size);
 	push_b(a, b, a_size, b_size);
 	while (*a_size > 3)
 	{
-		calculate_best_moves(a, b, *a_size, *b_size, &cheapest);
+		calculate_best_moves(a, b, *a_size, *b_size);
 		execute_best_moves(a, b, *a_size, *b_size, &cheapest);
 		push_b(a, b, a_size, b_size);
 	}

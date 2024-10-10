@@ -12,19 +12,20 @@
 
 #include "push_swap.h"
 
-void	calculate_best_moves(int *a, int *b, int a_size, int b_size, cheapest_moves *cheapest)
+void	calculate_best_moves(int *a, int *b, int a_size, int b_size)
 {
 	int	i;
-	record_moves	current_moves;
+	t_record_moves	current_moves;
+	t_cheapest_moves	cheapest;	
 
 	i = 0;
-	cheapest->cheapest_move_count = INT_MAX;
+	cheapest.cheapest_move_count = INT_MAX;
 	while (i < a_size)
 	{
 		current_moves.target_b_index = find_b_target_position(b, b_size, a[i]);
 		calculate_moves(a_size, b_size, i, &current_moves);
-		if (current_moves.total_moves < cheapest->cheapest_move_count)
-			update_cheapest(cheapest, &current_moves, i);
+		if (current_moves.total_moves < cheapest.cheapest_move_count)
+			update_cheapest(&cheapest, &current_moves, i);
 		i++;
 	}
 }

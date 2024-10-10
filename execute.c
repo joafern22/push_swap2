@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	execute_best_moves(int *a, int *b, int a_size, int b_size,  cheapest_moves *cheapest)
+void	execute_best_moves(int *a, int *b, int a_size, int b_size,  t_cheapest_moves *cheapest)
 {
 	int	combination;
 

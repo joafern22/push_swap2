@@ -68,12 +68,11 @@ int		find_max_index(int *b, int b_size);
 int		find_min_index(int *a, int a_size);
 int		find_a_target_position(int *stack, int stack_size, int nbr);
 int		find_b_target_position(int *stack, int stack_size, int nbr);
-void	calculate_best_moves(int *a, int *b, int a_size, int b_size, cheapest_moves *cheapest);
+void	calculate_best_moves(int *a, int *b, int a_size, int b_size);
 void	calculate_moves(int a_size, int b_size, int a_index, record_moves *moves);
 void	execute_best_moves(int *a, int *b, int a_size, int b_size, cheapest_moves *cheapest);
 void	execute_rotation(int *a, int *b, int a_size, int b_size, cheapest_moves *cheapest);
-void	execute_reverse_rotation(int *a, int *b, int a_size, int b_size,
-			cheapest_moves *cheapest);
+void	execute_reverse_rotation(int *a, int *b, int a_size, int b_size,cheapest_moves *cheapest);
 void	execute_ra_rrb(int *a, int *b, int a_size, int b_size, cheapest_moves *cheapest);
 void	execute_rb_rra(int *a, int *b, int a_size, int b_size, cheapest_moves *cheapest);
 int		best_combination(int one, int two, int three, int four);
