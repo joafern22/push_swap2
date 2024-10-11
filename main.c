@@ -20,34 +20,47 @@
 
 int	main(int argc, char **argv)
 {
-	int	*a;
-	int	*b;
-	int	a_size;
-	int	b_size;
+	t_stacks	*stacks;
 
 	if (argc < 2)
 	{
 		write(2, "Error\n", 6);
-		return (EXIT_FAILURE);
+		return (0);
 	}
-	a = NULL;
-	b = NULL;
-	a_size = argc - 1;
-	b_size = 0;
-	if (!allocate_stacks(&a, &b, a_size))
-		return (EXIT_FAILURE);
-	if (!parser(a, b, a_size, argv))
+	stacks = init_stacks(argc);
+	if (!stacks)
+		return (0);
+	if (!allocate_stacks(&stacks->a, &stacks->b, stacks->a_size))
 	{
-		free(a);
-		free(b);
-		return (EXIT_FAILURE);
+		free(stacks);
+		return (0);
 	}
-	if (!edge_cases(a, a_size))
-		greedy_insertion(a, b, &a_size, &b_size);
-	//write_stacks(a, b, a_size, b_size);
-	free(a);
-	free(b);
+	if (parser(stacks->a, stacks->b, stacks->a_size, argv))
+	{	
+		if (!edge_cases(stacks->a, stacks->a_size))
+			greedy_insertion(stacks);
+	}
+	free(stacks->a);
+	free(stacks->b);
+	free(stacks);
 	return (0);
+}
+
+t_stacks	*init_stacks(int argc)
+{
+	t_stacks	*stacks;
+
+	stacks = malloc(sizeof(t_stacks));
+	if (!stacks)
+	{
+		write(2, "Error\n", 6);
+		return (NULL);
+	}
+	stacks->a = NULL;
+	stacks->b = NULL;
+	stacks->a_size = argc - 1;
+	stacks->b_size = 0;
+	return (stacks);
 }
 
 int	allocate_stacks(int **a, int **b, int a_size)
@@ -61,7 +74,7 @@ int	allocate_stacks(int **a, int **b, int a_size)
 	*b = malloc((a_size) * sizeof(int));
 	if (!(*b))
 	{
-		free(a); 
+		free(a);
 		write(2, "Error\n", 6);
 		return (0);
 	}

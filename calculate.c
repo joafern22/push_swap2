@@ -12,25 +12,24 @@
 
 #include "push_swap.h"
 
-void	calculate_best_moves(int *a, int *b, int a_size, int b_size)
+void	calculate_best_moves(t_stacks *stacks, t_cheapest_moves *cheapest)
 {
 	int	i;
 	t_record_moves	current_moves;
-	t_cheapest_moves	cheapest;	
 
 	i = 0;
-	cheapest.cheapest_move_count = INT_MAX;
-	while (i < a_size)
+	cheapest->cheapest_move_count = INT_MAX;
+	while (i < stacks->a_size)
 	{
-		current_moves.target_b_index = find_b_target_position(b, b_size, a[i]);
-		calculate_moves(a_size, b_size, i, &current_moves);
-		if (current_moves.total_moves < cheapest.cheapest_move_count)
-			update_cheapest(&cheapest, &current_moves, i);
+		current_moves.target_b_index = find_b_target_position(stacks->b, stacks->b_size, stacks->a[i]);
+		calculate_moves(stacks->a_size, stacks->b_size, i, &current_moves);
+		if (current_moves.total_moves < cheapest->cheapest_move_count)
+			update_cheapest(cheapest, &current_moves, i);
 		i++;
 	}
 }
 
-void	calculate_moves(int a_size, int b_size, int a_index, record_moves *moves)
+void	calculate_moves(int a_size, int b_size, int a_index, t_record_moves *moves)
 {
 	int	b_index;
 
@@ -46,7 +45,7 @@ void	calculate_moves(int a_size, int b_size, int a_index, record_moves *moves)
 	calculate_total_moves(moves);
 }
 
-void	calculate_total_moves(record_moves *moves)
+void	calculate_total_moves(t_record_moves *moves)
 {
 	moves->ra_moves -= moves->rr_moves;
 	moves->rb_moves -= moves->rr_moves;
@@ -81,7 +80,7 @@ int	best_combination(int one, int two, int three, int four)
 	return (combination);
 }
 
-void	update_cheapest(cheapest_moves *cheapest, record_moves *current_moves, int i)
+void	update_cheapest(t_cheapest_moves *cheapest, t_record_moves *current_moves, int i)
 {
 	cheapest->cheapest_move_count = current_moves->total_moves;
 	cheapest->cheapest_ra = current_moves->ra_moves;

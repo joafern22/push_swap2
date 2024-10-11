@@ -12,26 +12,34 @@
 
 #include "push_swap.h"
 
-void	greedy_insertion(int *a, int *b, int *a_size, int *b_size)
+void	greedy_insertion(t_stacks *stacks)
 {
+	t_cheapest_moves	*cheapest;
 	int	correct_position;
-	
-	push_b(a, b, a_size, b_size);
-	push_b(a, b, a_size, b_size);
-	while (*a_size > 3)
+
+	cheapest = malloc(sizeof(t_cheapest_moves));
+	if (!cheapest)
 	{
-		calculate_best_moves(a, b, *a_size, *b_size);
-		execute_best_moves(a, b, *a_size, *b_size, &cheapest);
-		push_b(a, b, a_size, b_size);
-	}
-	sort_three(a, *a_size);
-	while (*b_size > 0)
+		write(1, "Error\n", 6);
+		return ;
+	}	
+	push_b(stacks->a, stacks->b, &stacks->a_size, &stacks->b_size);
+	push_b(stacks->a, stacks->b, &stacks->a_size, &stacks->b_size);
+	while (stacks->a_size > 3)
 	{
-		correct_position = find_a_target_position(a, *a_size, b[0]);
-		prepare_a(a, *a_size, correct_position);
-		push_a(a, b, a_size, b_size);
+		calculate_best_moves(stacks, cheapest);
+		execute_best_moves(stacks, cheapest);
+		push_b(stacks->a, stacks->b, &stacks->a_size, &stacks->b_size);
 	}
-	prepare_a(a, *a_size, find_min_index(a, *a_size));
+	free(cheapest);
+	sort_three(stacks->a, stacks->a_size);
+	while (stacks->b_size > 0)
+	{
+		correct_position = find_a_target_position(stacks->a, stacks->a_size, stacks->b[0]);
+		prepare_a(stacks->a, stacks->a_size, correct_position);
+		push_a(stacks->a, stacks->b, &stacks->a_size, &stacks->b_size);
+	}
+	prepare_a(stacks->a, stacks->a_size, find_min_index(stacks->a, stacks->a_size));
 }
 
 int	max(int	moves1, int moves2)
