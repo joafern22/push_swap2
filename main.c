@@ -36,7 +36,7 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	if (parser(stacks->a, stacks->b, stacks->a_size, argv))
-	{	
+	{
 		if (!edge_cases(stacks->a, stacks->a_size))
 			greedy_insertion(stacks);
 	}

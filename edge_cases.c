@@ -18,7 +18,7 @@
 int	edge_cases(int *a, int a_size)
 {
 	if (sorted(a, a_size))
-		return (1);	
+		return (1);
 	else if (a_size == 2)
 	{
 		sort_two(a, a_size);
@@ -56,14 +56,15 @@ void	sort_two(int *a, int a_size)
 	if (a[0] > a[1])
 		swap_a(a);
 }
-void    sort_three(int *a, int a_size)
+
+void	sort_three(int *a, int a_size)
 {
-        if (a_size !=3)
-                return;
-        if (a[0] > a[1] && a[0] > a[2])
-                rotate_a(a, &a_size);
-        else if (a[1] > a[0] && a[1] > a[2])
-                r_rotate_a(a, &a_size);
-        if (a[0] > a[1])
-                swap_a(a);
+	if (a_size != 3)
+		return ;
+	if (a[0] > a[1] && a[0] > a[2])
+		rotate_a(a, &a_size);
+	else if (a[1] > a[0] && a[1] > a[2])
+		r_rotate_a(a, &a_size);
+	if (a[0] > a[1])
+		swap_a(a);
 }

@@ -14,7 +14,7 @@
 
 void	write_stacks(int *a, int *b, int a_size, int b_size)
 {
-	int	i;
+	int		i;
 	char	*ascii;
 
 	write(1, "Stack a:\n", 9);

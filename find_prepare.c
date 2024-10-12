@@ -30,7 +30,6 @@ void	prepare_a(int *a, int a_size, int position)
 			position++;
 		}
 	}
-	//inserir rb e rrb
 }
 
 int	find_a_target_position(int *stack, int stack_size, int nbr)
@@ -52,7 +51,7 @@ int	find_a_target_position(int *stack, int stack_size, int nbr)
 		i++;
 	}
 	if (target_index == -1)
-                target_index = (find_max_index(stack, stack_size) + 1) % stack_size;
+		target_index = (find_max_index(stack, stack_size) + 1) % stack_size;
 	return (target_index);
 }
 
@@ -75,7 +74,8 @@ int	find_b_target_position(int *stack, int stack_size, int nbr)
 		i++;
 	}
 	if (target_index == -1)
-                target_index = (find_min_index(stack, stack_size) + 1) % stack_size;
+		target_index = (find_min_index(stack, stack_size) + 1)
+			% stack_size;
 	return (target_index);
 }
 

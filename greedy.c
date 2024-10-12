@@ -15,14 +15,14 @@
 void	greedy_insertion(t_stacks *stacks)
 {
 	t_cheapest_moves	*cheapest;
-	int	correct_position;
+	int					correct_position;
 
 	cheapest = malloc(sizeof(t_cheapest_moves));
 	if (!cheapest)
 	{
 		write(1, "Error\n", 6);
 		return ;
-	}	
+	}
 	push_b(stacks->a, stacks->b, &stacks->a_size, &stacks->b_size);
 	push_b(stacks->a, stacks->b, &stacks->a_size, &stacks->b_size);
 	while (stacks->a_size > 3)
@@ -35,14 +35,16 @@ void	greedy_insertion(t_stacks *stacks)
 	sort_three(stacks->a, stacks->a_size);
 	while (stacks->b_size > 0)
 	{
-		correct_position = find_a_target_position(stacks->a, stacks->a_size, stacks->b[0]);
+		correct_position = find_a_target_position(stacks->a,
+				stacks->a_size, stacks->b[0]);
 		prepare_a(stacks->a, stacks->a_size, correct_position);
 		push_a(stacks->a, stacks->b, &stacks->a_size, &stacks->b_size);
 	}
-	prepare_a(stacks->a, stacks->a_size, find_min_index(stacks->a, stacks->a_size));
+	prepare_a(stacks->a, stacks->a_size, find_min_index(stacks->a,
+			stacks->a_size));
 }
 
-int	max(int	moves1, int moves2)
+int	max(int moves1, int moves2)
 {
 	if (moves1 > moves2)
 		return (moves1);

@@ -12,25 +12,22 @@
 
 #include "push_swap.h"
 
-int ft_isdecimal(char *c)
+int	ft_isdecimal(char *c)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    if (!c || c[i] == '\0')
-        return (0);
-
-    if (c[i] == '-')
-        i++;
-
-    if (c[i] == '\0')
-        return (0);
-
-    while (c[i])
-    {
-        if (c[i] < '0' || c[i] > '9')
-            return (0);
-        i++;
-    }
-    return (1);
+	i = 0;
+	if (!c || c[i] == '\0')
+		return (0);
+	if (c[i] == '-')
+		i++;
+	if (c[i] == '\0')
+		return (0);
+	while (c[i])
+	{
+		if (c[i] < '0' || c[i] > '9')
+			return (0);
+		i++;
+	}
+	return (1);
 }

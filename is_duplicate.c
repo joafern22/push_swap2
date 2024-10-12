@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-	
+
 int	is_duplicate(int nbr, int *a, int i)
 {
 	int	j;
@@ -21,6 +21,6 @@ int	is_duplicate(int nbr, int *a, int i)
 		j++;
 	if (a[i] == nbr && j != i)
 		return (1);
-	else 
+	else
 		return (0);
 }

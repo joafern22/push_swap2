@@ -17,9 +17,11 @@ void	execute_best_moves(t_stacks *stacks, t_cheapest_moves *cheapest)
 	int	combination;
 
 	combination = best_combination(
-		(cheapest->cheapest_ra + cheapest->cheapest_rb + cheapest->cheapest_rr),
-		(cheapest->cheapest_rra + cheapest->cheapest_rrb + cheapest->cheapest_rrr),
-		cheapest->cheapest_ra_rrb, cheapest->cheapest_rb_rra);
+			(cheapest->cheapest_ra + cheapest->cheapest_rb
+				+ cheapest->cheapest_rr),
+			(cheapest->cheapest_rra + cheapest->cheapest_rrb
+				+ cheapest->cheapest_rrr),
+			cheapest->cheapest_ra_rrb, cheapest->cheapest_rb_rra);
 	fflush(stdout);
 	if (combination == 1)
 		execute_rotation(stacks, cheapest);
@@ -61,7 +63,7 @@ void	execute_rb_rra(t_stacks *stacks, t_cheapest_moves *cheapest)
 		r_rotate_a(stacks->a, &stacks->a_size);
 		cheapest->cheapest_rra--;
 	}
-}	
+}
 
 void	execute_rotation(t_stacks *stacks, t_cheapest_moves *cheapest)
 {

@@ -60,7 +60,7 @@ void	rotate_rr(int *a, int *b, int *a_size, int *b_size)
 	i = 0;
 	temp = b[0];
 	while (i + 1 < *b_size)
-	{			
+	{
 		b[i] = b[i + 1];
 		i++;
 	}
