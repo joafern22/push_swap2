@@ -14,7 +14,10 @@
 # define PUSH_SWAP_H
 
 # include <unistd.h>
-# include "libft.h"
+# include <stdlib.h>
+
+# define INT_MAX 2147483647
+# define INT_MIN -2147483648
 
 typedef struct s_stacks
 {

@@ -22,7 +22,6 @@ void	execute_best_moves(t_stacks *stacks, t_cheapest_moves *cheapest)
 			(cheapest->cheapest_rra + cheapest->cheapest_rrb
 				+ cheapest->cheapest_rrr),
 			cheapest->cheapest_ra_rrb, cheapest->cheapest_rb_rra);
-	fflush(stdout);
 	if (combination == 1)
 		execute_rotation(stacks, cheapest);
 	else if (combination == 2)
