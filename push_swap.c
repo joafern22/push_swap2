@@ -12,33 +12,6 @@
 
 #include "push_swap.h"
 
-void	write_stacks(int *a, int *b, int a_size, int b_size)
-{
-	int		i;
-	char	*ascii;
-
-	write(1, "Stack a:\n", 9);
-	i = 0;
-	while (i < a_size)
-	{
-		ascii = ft_itoa(a[i]);
-		write(1, ascii, ft_strlen(ascii));
-		write(1, "\n", 1);
-		free(ascii);
-		i++;
-	}
-	write(1, "Stack b:\n", 9);
-	i = 0;
-	while (i < b_size)
-	{
-		ascii = ft_itoa(b[i]);
-		write(1, ascii, ft_strlen(ascii));
-		write(1, "\n", 1);
-		free(ascii);
-		i++;
-	}
-}
-
 void	swap_a(int *a)
 {
 	int	temp;
