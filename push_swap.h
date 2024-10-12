@@ -77,6 +77,8 @@ int			find_min_index(int *a, int a_size);
 int			find_a_target_position(int *stack, int stack_size, int nbr);
 int			find_b_target_position(int *stack, int stack_size, int nbr);
 void		greedy_insertion(t_stacks *stacks);
+void		push_to_b(t_stacks *stacks, t_cheapest_moves *cheapest);
+void		push_to_a(t_stacks *stacks);
 void		calculate_best_moves(t_stacks *stacks, t_cheapest_moves *cheapest);
 void		calculate_moves(int a_size, int b_size, int a_index,
 				t_record_moves *moves);
